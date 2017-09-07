@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist xinyeweb/yii2-web-uploader "*"
+php composer.phar require --prefer-dist xinyeweb/yii2-webuploader "*"
 ```
 
 or add
 
 ```
-"xinyeweb/yii2-web-uploader": "dev-master"
+"xinyeweb/yii2-webuploader": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
