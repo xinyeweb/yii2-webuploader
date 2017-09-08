@@ -1,6 +1,6 @@
 yii2-webuploader
 ================
-yii2-webuploader
+yii2-webuploader 組件。
 
 Installation
 ------------
@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist xinyeweb/yii2-webuploader "*"
+php composer.phar require --prefer-dist xinyeweb/yii2-webuploader "dev-master"
 ```
 
 or add
@@ -33,7 +33,7 @@ Usage
 多圖使用  :
 ```php
 <?= 
-    $form->field($model, 'pics')->widget(\app\core\widgets\webuploader\WebUploader::className(),[
+    $form->field($model, 'pics')->widget(\xinyeweb\webuploader\WebUploader::className(),[
         'clientOptions' => [
             'pick' => [
                 'multiple' => true,

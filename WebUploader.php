@@ -17,7 +17,8 @@ class WebUploader extends InputWidget
 {
     public $clientOptions = [];
     public $baseOptions = [
-        'defaultImage' => 'http://hs.xinyeweb.com/assets/24a808a4/static/images/logo-footer.png',
+//        'defaultImage' => 'http://hs.xinyeweb.com/assets/24a808a4/static/images/logo-footer.png',
+        'defaultImage' => '/uploads/default.jpg',
         'disableGlobalDnd' => true,
         'accept' => [
             'title' => 'Images',
