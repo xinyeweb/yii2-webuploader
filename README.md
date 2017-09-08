@@ -51,3 +51,11 @@ Controller 中配置上傳  :
         ]);
     }
 ```
+高級版 上傳目錄
+```php
+    Yii::setAlias('@upload', dirname(dirname(__DIR__)) . '/web/uploads'); //存储目录path
+```
+基礎版 上傳目錄 入口文件
+```php
+    Yii::setAlias('@upload', __DIR__ . '/uploads'); //存储目录path
+```
