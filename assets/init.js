@@ -310,7 +310,7 @@ jQuery(function() {
                                     var name = chooseObject.parent().prev().attr('name');
                                     $.each(uploadedFiles, function(idx, url) {
                                         if (url.code == 0) {
-                                            chooseObject.parent().parent().next().append('<div class="multi-item"><img src="'+url.url+'" class="img-responsive img-thumbnail cus-img"><input type="hidden" name="'+name+'[]" value="'+url.attachment+'"><em class="close delMultiImage" title="删除这张图片">×</em></div>');
+                                            chooseObject.parent().parent().next().append('<li class="multi-item"><img src="'+url.url+'" class="img-responsive img-thumbnail cus-img"><input type="hidden" name="'+name+'[]" value="'+url.attachment+'"><em class="close delMultiImage" title="删除这张图片">×</em></li>');
                                         } else {
                                             console.log(url.msg);
                                         }

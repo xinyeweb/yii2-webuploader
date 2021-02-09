@@ -59,6 +59,7 @@ class WebUploader extends InputWidget
             else {
                 $html = $this->renderMultiInput($model, $attribute);
                 $html .= $this->renderMultiImage($model, $attribute);
+                $this->setSortable();
             }
 
             echo $html;
@@ -89,6 +90,29 @@ class WebUploader extends InputWidget
 JS;
         $this->_view->registerJs($js);
     }
+
+    //注册拖拽
+    public function setSortable() {
+        $id = md5($this->options['id']);
+        $js = <<<EOF
+        var id = "multi-img-details-{$id}";
+Sortable.create(document.getElementById(id),{
+        distance : 30,
+    }); 
+    document.body.ondrop = function (event) {
+    event = event || window.event;
+    if (event.preventDefault) {
+        event.preventDefault();
+        event.stopPropagation();
+    } else {
+        event.returnValue = false;
+        event.cancelBubble = true;
+    }
+};
+EOF;
+        $this->_view->registerJs($js);
+    }
+
     /**
      * Registers the needed client script and options.
      */
@@ -195,6 +219,7 @@ JS;
         /**
          * @var $srcTmp like this: src1,src2...srcxxx
          */
+        $id = "multi-img-details-".md5($this->options['id']);
         $srcTmp = $model->$attribute;
         $items = [];
         if ($srcTmp) {
@@ -209,10 +234,10 @@ JS;
                 $eles[] = Html::img($src, ['class' => 'img-responsive img-thumbnail cus-img']);
                 $eles[] = Html::hiddenInput($inputName . "[]", $v);
                 $eles[] = Html::tag('em', 'x', ['class' => 'close delMultiImage', 'title' => '删除这张图片']);
-                $items[] = Html::tag('div', implode("\n", $eles), ['class' => 'multi-item']);
+                $items[] = Html::tag('li', implode("\n", $eles), ['class' => 'multi-item']);
             }
         }
-        return Html::tag('div', implode("\n", $items), ['class' => 'input-group multi-img-details']);
+        return Html::tag('ul', implode("\n", $items), ['class' => 'input-group multi-img-details', 'id'=>$id]);
     }
     /**
      * validate `$value` is url

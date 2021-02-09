@@ -19,7 +19,8 @@ class WebUploaderAsset extends AssetBundle
     ];
     public $js = [
         'webuploader.min.js',
-        'init.js'
+        'init.js',
+        'js/sortable.min.js'
     ];
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
